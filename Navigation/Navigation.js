@@ -6,13 +6,15 @@ import LoginView from '../Components/LoginView'
 import ForgotView from '../Components/ForgotView'
 import styles from '../Style/Style'
 
-function Home({ navigation }) {
+function Login({ navigation }) {
   return (
   <LoginView/>
+
+
   );
 }
 
-function Profile({ navigation }) {
+function Forgot({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Profile screen</Text>
@@ -45,15 +47,15 @@ function MyStack() {
     <Stack.Navigator>
       <Stack.Screen
         name="Login"
-        component={Home}
+        component={Login}
         options={{
           headerTintColor: 'white',
           headerStyle: { backgroundColor: '#DCDCDC' },
         }}
       />
       <Stack.Screen
-        name="Profile"
-        component={Profile}
+        name="Forgot password"
+        component={Forgot}
         options={{ headerStyleInterpolator: forFade }}
       />
     </Stack.Navigator>

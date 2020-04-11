@@ -4,6 +4,7 @@ import {
   Button,TouchableHighlight,Image, Alert
 } from 'react-native';
 import styles from '../Style/Style'
+import Stack from '../Navigation/Navigation'
 
 
  class LoginView extends Component {
@@ -21,8 +22,10 @@ import styles from '../Style/Style'
 
 if(viewId=="Login"){
   Alert.alert("Alert", "Mazal ouytedara "+viewId);
+
 }else {
   Alert.alert("Alert", "Mazal ouytedara "+viewId);
+//  console.log(this.props)
 }
 
 

@@ -3,35 +3,32 @@ import {
   StyleSheet,Text,View,TextInput,
   Button,TouchableHighlight,Image, Alert
 } from 'react-native';
+import { useNavigation, NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import styles from '../Style/Style'
-import Stack from '../Navigation/Navigation'
+import Profile from '../Navigation/Navigation'
+
+function GoToButtonForgot({ screenName }) {
+  const navigation = useNavigation();
+
+  return (
+    <Button
+      title={`mot de passe oublié?`}
+      onPress={() => navigation.navigate(screenName)}
+    />
+  );
+}
 
 
  class LoginView extends Component {
 
-  constructor(props) {
-    super(props);
-    state = {
-      email   : '',
-      password: '',
-    }
-  }
+   onClickListener = (viewId) => {
+     Alert.alert("Alert", "Mazal ouytedara "+viewId);
+     }
 
-  onClickListener = (viewId) => {
-
-
-if(viewId=="Login"){
-  Alert.alert("Alert", "Mazal ouytedara "+viewId);
-
-}else {
-  Alert.alert("Alert", "Mazal ouytedara "+viewId);
-//  console.log(this.props)
-}
-
-
-  }
 
   render() {
+    console.log(this.props)
     return (
       <View style={styles.container}>
         <View style={styles.inputContainer}>
@@ -56,9 +53,7 @@ if(viewId=="Login"){
           <Text style={styles.loginText}>Se connecter</Text>
         </TouchableHighlight>
 
-        <TouchableHighlight style={styles.buttonContainer} onPress={() => this.onClickListener('mdp oublié')}>
-            <Text>mot de passe oublié?</Text>
-        </TouchableHighlight>
+        <GoToButtonForgot screenName="Forgot" />
       </View>
     );
   }

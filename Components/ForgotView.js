@@ -4,29 +4,31 @@ import {
   Button,TouchableHighlight,Image, Alert
 } from 'react-native';
 
+import { useNavigation, NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
 import styles from '../Style/Style'
+
+//la fonction qui va permettre la navigation entre les pages
+
+function GoToButtonLogin({ screenName }) {
+  const navigation = useNavigation();
+
+  return (
+    <Button
+      title={`Retourner au login?`}
+      onPress={() => navigation.navigate(screenName)}
+    />
+  );
+}
 
  class ForgotView extends Component {
 
-  constructor(props) {
-    super(props);
-    state = {
-      email   : '',
-      password: '',
-    }
-  }
 
-  onClickListener = (viewId) => {
+   onClickListener = (viewId) => {
+     Alert.alert("Alert", "Mazal ouytedara "+viewId);
+     }
 
-
-if(viewId=="restaurer"){
-  Alert.alert("Alert", "Mazal ouytedara "+viewId);
-}else {
-  Alert.alert("Alert", "Mazal ouytedara "+viewId);
-}
-
-
-  }
 
   render() {
     return (
@@ -44,9 +46,7 @@ if(viewId=="restaurer"){
           <Text style={styles.loginText}>Restaurer</Text>
         </TouchableHighlight>
 
-        <TouchableHighlight style={styles.buttonContainer} onPress={() => this.onClickListener('connecter')}>
-            <Text>se connecter?</Text>
-        </TouchableHighlight>
+     <GoToButtonLogin screenName="Login" />
       </View>
     );
   }
